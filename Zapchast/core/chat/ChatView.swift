@@ -14,7 +14,21 @@ struct ChatView: View {
     @State private var isFetchingMore = false
     
     var body: some View {
+        NavigationView {
             VStack {
+                
+                // Верхняя панель
+                ZStack {
+                    Color(hex: color)
+                        .ignoresSafeArea(edges: .top)
+                        .frame(height: 80)
+                    
+                    Text("Чаты")
+                        .font(.system(size: 24, weight: .bold))
+                        .foregroundColor(.white)
+                }
+                .frame(maxWidth: .infinity)
+                
                 // Search and Filter Buttons
                 HStack {
                     SearchBar(color: color)
@@ -36,7 +50,7 @@ struct ChatView: View {
                     }
                 }
             }
-        
+        }
     }
     
     private func loadMoreChats() {

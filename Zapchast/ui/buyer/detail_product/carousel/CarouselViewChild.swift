@@ -7,12 +7,14 @@
 
 import SwiftUI
 
-struct CarouselViewChild: View {
+struct CarouselViewChild: View, Identifiable {
+    var id: Int
+    @ViewBuilder var content: any View
+    
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            AnyView(content)
+        }
     }
-}
-
-#Preview {
-    CarouselViewChild()
 }

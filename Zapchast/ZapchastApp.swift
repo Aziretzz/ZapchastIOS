@@ -6,12 +6,16 @@
 //
 
 import SwiftUI
+import KeychainAccess
 
 @main
 struct ZapchastApp: App {
+    @StateObject var appViewModel = OnBoardViewModel()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            OnBoardView()
+                .environmentObject(appViewModel)
         }
     }
 }
